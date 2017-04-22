@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <h2>Hi! <%= current_user.email %></h2>
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+    <% end %>
+    <%= render 'layouts/flash_messages' %>
     <%= yield %>
   </body>
 </html>
