@@ -11,9 +11,15 @@
   <body>
     <% if current_user %>
       <h2>Hi! <%= current_user.email %></h2>
+      <%= link_to 'Home', home_index_path %>
+      <% if current_user.admin? %>
+        <%= link_to 'Admin Dashboard', admin_index_path%>
+      <% end %>
       <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
     <% end %>
+    
     <%= render 'layouts/flash_messages' %>
+    <hr>
     <%= yield %>
   </body>
 </html>

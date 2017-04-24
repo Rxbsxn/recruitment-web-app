@@ -2,6 +2,16 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      redirect_to root_path, notice: 'User deleted'
+    else
+      render :index
+    end
   end
 end
