@@ -26,7 +26,11 @@
       <td>User has no interests</td>
     <% end %>
     <% if current_user.admin? %>
-      <td><%= link_to '', home_path(user), method: :delete, class: 'glyphicon glyphicon-trash' %></td>
+      <% if user != current_user %>
+        <td><%= link_to '', home_path(user), method: :delete, class: 'glyphicon glyphicon-trash' %></td>
+      <% else %>
+        <td>You cannot delete yourself</td>
+      <% end %>
     <% end %>
   </tr>
 <% end %>

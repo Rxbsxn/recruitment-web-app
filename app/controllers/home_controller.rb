@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if @user.destroy
-      redirect_to root_path, notice: 'Operation done with successful'
+      redirect_to root_path, notice: 'User deleted'
     else
       render :index
     end
