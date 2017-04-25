@@ -1,36 +1,9 @@
 <% @users.each do |user| %>
   <tr>
-    <% if user.email %>
-      <td><%= user.email %></td>
-    <% else %>
-      <td>User has no email</td>
-    <% end %>
-        
-    <%if user.gender %>
-      <td><%= user.gender %></td>
-    <% else %>
-      <td>Gender is unknown</td>
-    <% end %>
-        
-    <%if user.age %>
-      <td><%= user.age %></td>
-    <% else %>
-      <td>Age is unknown</td>
-    <% end %>
-
-    <%if user.points_of_interests.any?%>
-      <% user.points_of_interests.each do |poi| %>
-        <td><%= poi.points %></td>
-      <% end %>
-    <% else %>
-      <td>User has no interests</td>
-    <% end %>
-    <% if current_user.admin? %>
-      <% if user != current_user %>
-        <td><%= link_to '', home_path(user), method: :delete, class: 'glyphicon glyphicon-trash' %></td>
-      <% else %>
-        <td>You cannot delete yourself</td>
-      <% end %>
-    <% end %>
+    <td><%= user.email %></td>    
+    <td><%= user.has_gender? %></td>
+    <td><%= user.has_age? %></td>
+    <td><%= user.has_interests? %></td>
+    <td><%= user.can_delete? %></td>
   </tr>
 <% end %>
