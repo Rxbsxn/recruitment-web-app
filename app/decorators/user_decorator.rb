@@ -1,7 +1,7 @@
 class UserDecorator < Draper::Decorator
   delegate_all
 
-  def has_gender?
+  def gender_info
     if gender.blank?
       'Gender is unknown'
     else
@@ -9,7 +9,7 @@ class UserDecorator < Draper::Decorator
     end
   end
 
-  def has_age?
+  def age_info
     if age.blank?
       'Age is unknown'
     else
@@ -17,7 +17,7 @@ class UserDecorator < Draper::Decorator
     end
   end
 
-  def has_interests?
+  def interests_info
     if points_of_interests.any?
       points_of_interests.each do |poi|
         poi.points
@@ -27,7 +27,7 @@ class UserDecorator < Draper::Decorator
     end
   end
 
-  def can_delete?
+  def can_delete
     if h.current_user.admin?
       if user != h.current_user
         h.link_to '', h.home_path(user), method: :delete, class: 'glyphicon glyphicon-trash'
