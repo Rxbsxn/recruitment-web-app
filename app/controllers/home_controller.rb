@@ -2,7 +2,8 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.all.decorate
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).decorate
   end
 
   def destroy
