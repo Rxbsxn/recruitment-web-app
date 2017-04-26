@@ -1,8 +1,4 @@
 <h1>User listing</h1>
-<% if current_user.admin? %>
-  <%= link_to 'Admin Dashboard', admin_index_path%>
-<% end %>
-
 <table class="table">
   <thead>
     <%= render 'nav'%>
