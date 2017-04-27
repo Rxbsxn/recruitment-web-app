@@ -9,6 +9,12 @@ class AdminController < ApplicationController
   private
 
   def verify_is_admin
-    (current_user.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless current_user.admin?)
+    if current_user.nil?
+      redirect_to(root_path)
+    else
+      unless current_user.admin?
+        redirect_to(root_path)
+      end
+    end
   end
 end
