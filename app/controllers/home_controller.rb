@@ -4,6 +4,12 @@ class HomeController < ApplicationController
   def index
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).decorate
+    @user_list = User.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @user_list.to_csv,
+                   filename: "User-List.csv" }
+    end
   end
 
   def destroy
