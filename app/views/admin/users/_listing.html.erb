@@ -1,0 +1,10 @@
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>    
+    <td><%= user.gender_info %></td>
+    <td><%= user.age_info %></td>
+    <td><%= user.interests_info %></td>
+    <td><%= user.can_delete %> | <%= user.able_to_edit %></td>
+  </tr>
+<% end %>
+

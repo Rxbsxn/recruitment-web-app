@@ -5,6 +5,8 @@
     <%= render './home/nav'%>
   </thead>
   <tbody>
-    <%= render './home/listing' %>
+    <%= render 'listing' %>
   </tbody>
 </table> 
+
+<%= link_to 'Create new User', new_admin_user_path, class: 'btn btn-primary' %>

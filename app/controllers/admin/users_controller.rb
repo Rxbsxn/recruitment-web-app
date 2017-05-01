@@ -1,4 +1,4 @@
-class AdminController < ApplicationController
+class Admin::UsersController < ApplicationController
   before_action :authenticate_user!
   before_filter :verify_is_admin
 
@@ -14,18 +14,25 @@ class AdminController < ApplicationController
   def create
     @user = User.default_password(user_params)
     if @user.save
-      redirect_to admin_index_path, notice: 'Done'
+      redirect_to admin_users_path, notice: 'User created'
     else
       render :new
     end 
   end
 
-  private
+  def edit
+  end
   
-  def user
-    @user = User.find(params[:id])
+  def update
+    if @user = User.update(user_params)
+      redirect_to admin_users_path, notice: 'User edited'
+    else
+      render :edit
+    end 
   end
 
+  private
+  
   def verify_is_admin
     if current_user.nil?
       redirect_to(root_path)
