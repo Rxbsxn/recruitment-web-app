@@ -8,6 +8,7 @@ class User < ApplicationRecord
   
   def self.default_password(attr = {})
     default = 'secret'
-    self.create(attr.merge(password: default, password_confirmation: default))
+    self.create(attr.merge(password: default,
+      password_confirmation: default))
   end
 end

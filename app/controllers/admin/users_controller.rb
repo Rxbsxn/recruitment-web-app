@@ -21,10 +21,12 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
   
   def update
-    if @user = User.update(user_params)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
       redirect_to admin_users_path, notice: 'User edited'
     else
       render :edit
