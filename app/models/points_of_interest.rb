@@ -3,6 +3,6 @@ class PointsOfInterest < ApplicationRecord
   
   belongs_to :user, inverse_of: :points_of_interests
 
-  validates :type , inclusion: { in: TYPES }
+  validates :type_of_interest , inclusion: { in: TYPES }
   validates :points, numericality: { only_integer: true }
 end

@@ -51,7 +51,7 @@ class Admin::UsersController < ApplicationController
       points_of_interests_attributes: [
         :id,
         :name,
-        :type,
+        :type_of_interest,
         :points
       ]
     )

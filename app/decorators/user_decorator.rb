@@ -20,7 +20,7 @@ class UserDecorator < Draper::Decorator
   def interests_info
     if points_of_interests.any?
       points_of_interests.each do |poi|
-        poi.points
+       return "#{poi.name} type-of #{poi.type_of_interest}"
       end
     else
       'User has no interests'

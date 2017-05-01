@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 20170501122513) do
   create_table "points_of_interests", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "points"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "name"
-    t.string   "type"
+    t.string   "type_of_interest"
     t.index ["user_id"], name: "index_points_of_interests_on_user_id"
   end
 
