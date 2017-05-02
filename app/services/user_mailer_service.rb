@@ -8,5 +8,3 @@ class UserMailerService
     UserMailer.send_greeting(@sender, @recipient).deliver_now
   end
 end
-
-          
