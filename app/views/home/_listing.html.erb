@@ -5,6 +5,6 @@
     <td><%= user.age_info %></td>
     <td><%= user.interests_info %></td>
     <td><%= user.can_delete %></td>
-    <td><%= link_to 'Send email', send_mail_home_index_path(user_id: user.id), method: :post %></td>
+    <td><%= link_to '', send_mail_home_index_path(user_id: user.id), method: :post, class: 'glyphicon glyphicon-envelope' %></td>
   </tr>
 <% end %>
