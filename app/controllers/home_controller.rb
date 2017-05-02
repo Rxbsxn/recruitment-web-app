@@ -4,13 +4,14 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    authorize! :index, current_user
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).decorate
-    @user_list = User.all
+    @users_set = User.all
     respond_to do |format|
       format.html
-      format.csv { send_data @user_list.to_csv,
-                   filename: "User-List.csv" }
+      format.csv { send_data @users_set.to_csv,
+                   filename: "Users_set.csv" }
     end
   end
 
