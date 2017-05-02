@@ -38,7 +38,7 @@ class UserDecorator < Draper::Decorator
     end  
   end
 
-  def able_to_edit
+  def can_edit
     if h.current_user.admin?
       h.link_to 'Edit', h.edit_admin_user_path(user)
     end

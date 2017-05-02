@@ -1,18 +1,22 @@
 <div class="nested-fields">
+
   <div class="field">
     <%= f.label :name %>
     <br>
     <%= f.text_field :name %>
   </div>
+  
   <div class="field">
     <%= f.label :type_of_interest %>
     <br>
     <%= f.select :type_of_interest, ['','health', 'hobby', 'work'] %>
   </div>
+  
   <div class="field">
     <%= f.label :points %>
     <br>
     <%= f.text_field :points %>
   </div>
   <%= link_to_remove_association "Remove point", f %>
+
 </div>
