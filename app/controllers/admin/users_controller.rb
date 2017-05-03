@@ -4,6 +4,8 @@ class Admin::UsersController < ApplicationController
 
   def index
     @users = User.all.decorate
+    @query_result = ActiveRecord::Base
+                    .connection.exec_query User::SQL_QUERY
   end
   
   def new 
