@@ -28,4 +28,11 @@ RSpec.describe User, type: :model do
       expect(user.email).to match(user.email)
     end
   end
+
+  describe "User with admin rights" do
+    let(:user) { create(:admin) }
+    it 'returns true' do
+      expect(user.admin?).to be_truthy
+    end
+  end
 end
