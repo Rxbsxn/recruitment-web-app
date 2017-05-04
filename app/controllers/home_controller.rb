@@ -7,10 +7,9 @@ class HomeController < ApplicationController
     authorize! :index, current_user
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).decorate
-    @users_set = User.all
     respond_to do |format|
       format.html
-      format.csv { send_data @users_set.to_csv,
+      format.csv { send_data @users.object.to_csv,
                    filename: "Users_set.csv" }
     end
   end
