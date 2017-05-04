@@ -28,7 +28,7 @@ class UserDecorator < Draper::Decorator
     end
   end
 
-  def can_delete
+  def delete_url
     if h.current_user.admin?
       if user != h.current_user
         h.link_to '', h.home_path(user), method: :delete, class: 'glyphicon glyphicon-trash'
@@ -38,7 +38,7 @@ class UserDecorator < Draper::Decorator
     end  
   end
 
-  def can_edit
+  def edit_url
     if h.current_user.admin?
       h.link_to 'Edit', h.edit_admin_user_path(user)
     end
