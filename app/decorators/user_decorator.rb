@@ -21,7 +21,7 @@ class UserDecorator < Draper::Decorator
     if points_of_interests.any?
       points_of_interests.each do |poi|
        return "#{poi.name} type-of
-         #{poi.type_of_interest.capitalize}"
+         #{poi.type_of_interest}"
       end
     else
       'User has no interests'

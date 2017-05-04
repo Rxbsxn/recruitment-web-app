@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  SQL_QUERY = "SELECT COUNT(*) FROM users
-      JOIN points_of_interests ON user_id = users.id
-      WHERE (gender = 'woman') AND (age BETWEEN 20 AND 30)
-      AND (type_of_interest = 'health') AND (name LIKE 'cosm%')".freeze
+  SQL_QUERY = "SELECT
+              (SELECT COUNT(points) FROM points_of_interests WHERE user_id = users.id AND (type_of_interest = 'health') AND (name LIKE 'cosm%')) 
+              FROM users 
+              WHERE (gender = 'woman') AND (age BETWEEN 20 AND 30)".freeze
 
   has_many :points_of_interests, inverse_of: :user
 
