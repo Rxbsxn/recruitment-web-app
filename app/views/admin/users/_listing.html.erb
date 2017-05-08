@@ -4,9 +4,6 @@
     <td><%= user.gender_info %></td>
     <td><%= user.age_info %></td>
     <td><%= user.interests_info %></td>
-    <td><%= user.delete_url %></td>
-    <td><%= link_to '', send_mail_mails_path(user_id: user.id), method: :post, class: 'glyphicon glyphicon-envelope' %></td>
-    <td><%= user.export_csv %></td>
+    <td><%= user.can_edit %></td>
   </tr>
 <% end %>
-
