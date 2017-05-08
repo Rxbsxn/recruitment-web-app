@@ -50,9 +50,11 @@ class Admin::UsersController < ApplicationController
       :age,
       points_of_interests_attributes: [
         :id,
+        :user_id,
         :name,
         :type_of_interest,
-        :points
+        :points,
+        :_destroy
       ]
     )
   end

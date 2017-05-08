@@ -18,11 +18,11 @@
   <div id="points">
     <%= f.fields_for :points_of_interests do |poi| %>
       <%= render 'points_of_interest_fields', f: poi %>
+    <% end %>
       <div class="links">
         <%= link_to_add_association 'add point', f,
           :points_of_interests %>      
       </div>
-    <% end %>
   </div>
   <%= f.submit  %>  
 <% end %>

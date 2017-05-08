@@ -46,11 +46,4 @@ class UserDecorator < Draper::Decorator
       h.link_to 'Edit', h.edit_admin_user_path(user)
     end
   end
-  
-  def export_csv
-    if h.current_user.admin?
-      h.link_to 'Export to CSV', 
-        "#{h.home_index_path}.csv"
-    end
-  end
 end
