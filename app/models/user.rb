@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  SQL_QUERY = "SELECT
+              (SELECT COUNT(points) FROM points_of_interests WHERE user_id = users.id AND (type_of_interest = 'health') AND (name LIKE 'cosm%')) 
+              FROM users 
+              WHERE (gender = 'woman') AND (age BETWEEN 20 AND 30)".freeze
+
   has_many :points_of_interests, inverse_of: :user
 
   accepts_nested_attributes_for :points_of_interests, reject_if: :all_blank, allow_destroy: true
