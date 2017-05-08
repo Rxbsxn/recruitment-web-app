@@ -30,10 +30,19 @@ class UserDecorator < Draper::Decorator
   def can_delete
     if h.current_user.admin?
       if user != h.current_user
-        h.link_to '', h.home_path(user), method: :delete, class: 'glyphicon glyphicon-trash'
+        h.link_to '', h.home_path(user), 
+                      method: :delete, 
+                      class: 'glyphicon glyphicon-trash'
       else
         'You cannot delete yourself'
       end
     end  
+  end
+
+  def export_csv
+    if h.current_user.admin?
+      h.link_to 'Export to CSV', 
+        "#{h.home_index_path}.csv"
+    end
   end
 end
