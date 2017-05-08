@@ -1,0 +1,13 @@
+<h1>Admin Dashboard</h1>
+<h5>Asked Query: <%= @query_result.rows.count %></h5>
+
+<table class="table">
+  <thead>
+    <%= render './home/nav'%>
+  </thead>
+  <tbody>
+    <%= render 'listing' %>
+  </tbody>
+</table> 
+
+<%= link_to 'Create new User', new_admin_user_path, class: 'btn btn-primary' %>

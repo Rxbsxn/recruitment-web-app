@@ -1,0 +1,29 @@
+<%= form_for([:admin, @user]) do |f| %>
+  <div class='field'>
+    <%= f.label :email %>
+    <br>
+    <%= f.text_field :email %>
+  </div>
+  <div class='field'>  
+    <%= f.label :gender %>
+    <br>
+    <%= f.text_field :gender %>
+  </div>
+  <div class='field'>  
+    <%= f.label :age %>
+    <br>
+    <%= f.text_field :age %>
+  </div>
+  <h3>Points</h3>  
+  <div id="points">
+    <%= f.fields_for :points_of_interests do |poi| %>
+      <%= render 'points_of_interest_fields', f: poi %>
+      <div class="links">
+        <%= link_to_add_association 'add point', f,
+          :points_of_interests %>      
+      </div>
+    <% end %>
+  </div>
+  <%= f.submit  %>  
+<% end %>
+
